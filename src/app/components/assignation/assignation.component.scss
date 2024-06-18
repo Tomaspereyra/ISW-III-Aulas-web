@@ -1,0 +1,34 @@
+$primary-color: #007bff;
+$primary-hover-color: #0069d9;
+
+// Estilos para el formulario
+.my-form {
+  .form-group {
+    margin-bottom: 20px; // Espacio entre grupos de campos
+
+    label {
+      font-weight: bold; // Texto de etiqueta en negrita
+    }
+
+    select {
+      width: 100%; // Ancho completo del campo select
+      padding: 8px; // Espaciado interno
+      font-size: 14px; // Tamaño de fuente
+    }
+
+    p {
+      margin-top: 8px; // Espacio superior para el párrafo
+      font-size: 14px; // Tamaño de fuente
+    }
+  }
+
+  .btn-primary {
+    background-color: $primary-color; // Color de fondo
+    border-color: $primary-color; // Color del borde
+
+    &:hover {
+      background-color: $primary-hover-color; // Color de fondo al pasar el mouse
+      border-color: darken($primary-hover-color, 10%); // Color del borde al pasar el mouse
+    }
+  }
+}
