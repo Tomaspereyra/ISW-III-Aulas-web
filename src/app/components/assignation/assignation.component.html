@@ -1,0 +1,49 @@
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="card">
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit()" class="my-form">
+                <div class="form-group">
+                    <label for="subjectSelect">Asignatura:</label>
+                    <select id="subjectSelect" name="subjectSelect" class="form-control" [(ngModel)]="selectedSubject"
+                        (change)="onSubjectChange()">
+                        <option *ngFor="let inscription of inscriptions" [value]="inscription.subjectId">{{
+                            inscription.subjectName }}</option>
+                    </select>
+                    <!-- Mostrar el subjectId seleccionado -->
+                    <div *ngIf="totalStudents !== undefined" class="form-group">
+                        <p>La materia seleccionada tiene : {{ totalStudents }} inscriptos</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subjectSelect">Aula:</label>
+                    <select id="classroomSelect" name="classroomSelect" class="form-control"
+                        [(ngModel)]="selectedClassroom">
+                        <option *ngFor="let classroom of classrooms" [value]="classroom.id">{{classroom.place}} - Numero
+                            {{classroom.number}} - {{classroom.type}}</option>
+                    </select>
+
+                </div>
+                <!--
+    <div class="form-group">
+        <label for="timeSelect">Selecciona el turno:</label>
+        <select id="timeSelect" name="timeSelect" class="form-control" [(ngModel)]="selectedTime">
+          <option value="mañana">Mañana</option>
+          <option value="tarde">Tarde</option>
+          <option value="noche">Noche</option>
+        </select>
+      </div>-->
+
+
+                <button type="submit" class="btn btn-primary">Asignar</button>
+            </form>
+            <!-- Mensaje que se muestra cuando se presiona el botón de enviar -->
+            <div *ngIf="asignacionCorrecta" class="alert alert-success mt-3">
+                Se asigno correctamente
+            </div>
+            <!-- Mensaje de error -->
+            <div *ngIf="error" class="alert alert-danger mt-3">
+                La materia seleccionada ya fue asignada a un aula.
+            </div>
+        </div>
+    </div>
+</div>

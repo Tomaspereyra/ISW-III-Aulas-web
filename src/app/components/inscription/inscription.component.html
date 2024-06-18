@@ -1,0 +1,15 @@
+
+<div *ngIf="inscriptions.length > 0; else noData">
+    <h2>Listado de Inscripciones</h2>
+    <ul>
+      <li *ngFor="let inscription of inscriptions">
+        <p>ID: {{ inscription.id }}</p>
+        <p>IDs de Estudiantes: {{ inscription.studentsIds }}</p>
+        <p>ID de Asignatura: {{ inscription.subjectId }}</p>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noData>
+    <p>No hay inscripciones disponibles.</p>
+  </ng-template>
